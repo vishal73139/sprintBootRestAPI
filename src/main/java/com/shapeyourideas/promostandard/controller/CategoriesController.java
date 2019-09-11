@@ -31,11 +31,11 @@ public class CategoriesController {
         return categoriesService.getCategories();
     }
 
-    @GetMapping("/getAllCategoriesFromPromoStandard")
-    public  @ResponseBody
-    Iterable<CategoriesEntity> getAllCategoriesFromPromoStandard(){
-        return categoriesService.getCategories();
-    }
+    // @GetMapping("/getAllCategoriesFromPromoStandard")
+    // public  @ResponseBody
+    // Iterable<CategoriesEntity> getAllCategoriesFromPromoStandard(){
+    //    return categoriesService.getCategories();
+    // }
 
     @PostMapping(path = "/saveCategory",consumes = "application/json",produces = "application/json")
     ResponseEntity<String> addCategory(@Valid @RequestBody CategoryDTO categoryDTO){

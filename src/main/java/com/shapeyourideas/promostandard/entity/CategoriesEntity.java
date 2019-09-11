@@ -3,11 +3,10 @@ package com.shapeyourideas.promostandard.entity;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "Categories")
 public class CategoriesEntity {
@@ -16,9 +15,13 @@ public class CategoriesEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String name;
+    private String categoryName;
 
-    private Integer active;
+    private String categorySlug;
+
+    private String categoryImage;
+
+    private Integer isActive;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -26,13 +29,58 @@ public class CategoriesEntity {
     @CreationTimestamp
     private LocalDateTime updatedAt;
 
+    @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name = "category_subcategory_pivot",joinColumns = { @JoinColumn(name = "category_id") },
+            inverseJoinColumns = { @JoinColumn(name = "subcategory_id")})
+    private Set<SubcategoriesEntity> subCategories = new HashSet<>();
+
+    public Set<SubcategoriesEntity> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(Set<SubcategoriesEntity> subCategories) {
+        this.subCategories = subCategories;
+    }
+
     public CategoriesEntity(){
 
     }
 
     public CategoriesEntity(String name,Integer active){
-        this.name = name;
-        this.active = active;
+        this.categoryName = name;
+        this.isActive = active;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getCategorySlug() {
+        return categorySlug;
+    }
+
+    public void setCategorySlug(String categorySlug) {
+        this.categorySlug = categorySlug;
+    }
+
+    public String getCategoryImage() {
+        return categoryImage;
+    }
+
+    public void setCategoryImage(String categoryImage) {
+        this.categoryImage = categoryImage;
+    }
+
+    public Integer getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Integer isActive) {
+        this.isActive = isActive;
     }
 
     public long getId() {
@@ -43,21 +91,7 @@ public class CategoriesEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getActive() {
-        return active;
-    }
-
-    public void setActive(Integer active) {
-        this.active = active;
-    }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;

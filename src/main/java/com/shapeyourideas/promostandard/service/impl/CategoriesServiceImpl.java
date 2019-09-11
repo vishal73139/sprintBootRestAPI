@@ -20,14 +20,14 @@ public class CategoriesServiceImpl implements CategoriesService {
     }
 
     @Override
-    public boolean addCategory(CategoriesEntity categoriesEntity){
+    public String addCategory(CategoriesEntity categoriesEntity){
 
-        List<CategoriesEntity> categoryListWithSameName = categoriesRepository.findByName(categoriesEntity.getName());
+        List<CategoriesEntity> categoryListWithSameName = categoriesRepository.findByCategoryName(categoriesEntity.getCategoryName());
         if (categoryListWithSameName.size() > 0) {
-            return false;
+           return "Category already available";
         } else {
             categoriesRepository.save(categoriesEntity);
-            return true;
+           return "Category Saved Successfully";
         }
     }
 }

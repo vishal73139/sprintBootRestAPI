@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CategoriesRepository  extends CrudRepository<CategoriesEntity,Integer> {
-    List<CategoriesEntity> findByName(String name);
+    List<CategoriesEntity> findByCategoryName(String name);
 }

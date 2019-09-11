@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoriesServiceImpl implements CategoriesService {
@@ -29,5 +30,11 @@ public class CategoriesServiceImpl implements CategoriesService {
             categoriesRepository.save(categoriesEntity);
            return "Category Saved Successfully";
         }
+    }
+
+    @Override
+    public Optional<CategoriesEntity> getCategoryById(Integer id){
+         Optional<CategoriesEntity> categoriesEntityDetail = categoriesRepository.findById(id);
+         return categoriesEntityDetail;
     }
 }

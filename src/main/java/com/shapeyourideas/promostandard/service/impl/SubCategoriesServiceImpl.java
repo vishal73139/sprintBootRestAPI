@@ -6,6 +6,8 @@ import com.shapeyourideas.promostandard.service.SubCategoriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class SubCategoriesServiceImpl implements SubCategoriesService {
 
@@ -15,4 +17,8 @@ public class SubCategoriesServiceImpl implements SubCategoriesService {
     @Override
     public Iterable<SubcategoriesEntity> getSubCategories(){ return subCategoriesRepository.findAll();}
 
+    @Override
+    public Optional<SubcategoriesEntity> getSubCategoryById(Integer id){
+        return subCategoriesRepository.findById(id);
+    }
 }

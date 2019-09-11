@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.naming.Context;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/categories")
@@ -29,6 +30,12 @@ public class CategoriesController {
     public @ResponseBody
     Iterable<CategoriesEntity> getAll() {
         return categoriesService.getCategories();
+    }
+
+    @GetMapping("/{ID}")
+    public @ResponseBody
+    Optional<CategoriesEntity> getCategoryDetail(@PathVariable(value = "ID") Integer id){
+        return categoriesService.getCategoryById(id);
     }
 
     // @GetMapping("/getAllCategoriesFromPromoStandard")
@@ -52,5 +59,12 @@ public class CategoriesController {
     Iterable<SubcategoriesEntity> getAllSubCategory(){
         return subCategoriesService.getSubCategories();
     }
+
+    @GetMapping("/subcategory/{ID}")
+    public @ResponseBody
+    Optional<SubcategoriesEntity> getSubCategoryById(@PathVariable(value = "ID") Integer id){
+        return subCategoriesService.getSubCategoryById(id);
+    }
+
 
 }

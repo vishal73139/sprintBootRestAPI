@@ -13,7 +13,7 @@ public class CategoriesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Integer id;
 
     private String categoryName;
 
@@ -83,15 +83,14 @@ public class CategoriesEntity {
         this.isActive = isActive;
     }
 
-    public long getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-
-
 
     public LocalDateTime getCreatedAt() {
         return createdAt;

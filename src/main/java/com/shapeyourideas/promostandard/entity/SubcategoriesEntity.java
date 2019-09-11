@@ -1,5 +1,6 @@
 package com.shapeyourideas.promostandard.entity;
 
+import io.swagger.models.auth.In;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ public class SubcategoriesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Integer id;
     private String subcategoryName;
     private String subcategorySlug;
     private String subcategoryImage;
@@ -36,11 +37,12 @@ public class SubcategoriesEntity {
         this.isActive = active;
     }
 
-    public long getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

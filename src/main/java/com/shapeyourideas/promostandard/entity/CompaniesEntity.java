@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class CompaniesEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String companyName;

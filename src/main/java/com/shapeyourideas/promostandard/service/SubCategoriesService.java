@@ -1,10 +1,10 @@
 package com.shapeyourideas.promostandard.service;
 
-import com.shapeyourideas.promostandard.entity.SubcategoriesEntity;
+import com.shapeyourideas.promostandard.dto.SubCategoryDTO;
 
-import java.util.Optional;
+import java.util.List; 
 
 public interface SubCategoriesService {
-    public abstract Iterable<SubcategoriesEntity> getSubCategories();
-    public abstract Optional<SubcategoriesEntity> getSubCategoryById(Integer id);
+    public abstract List<SubCategoryDTO> getSubCategories();
+    public abstract SubCategoryDTO getSubCategoryById(Integer id);
 }

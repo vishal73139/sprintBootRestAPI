@@ -1,12 +1,11 @@
 package com.shapeyourideas.promostandard.service;
 
-import com.shapeyourideas.promostandard.entity.CategoriesEntity;
+import com.shapeyourideas.promostandard.dto.CategoryDTO;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CategoriesService {
-    public abstract Iterable<CategoriesEntity> getCategories();
-    public abstract String addCategory(CategoriesEntity categoriesEntity);
-    public abstract Optional<CategoriesEntity> getCategoryById(Integer id);
+    public abstract List<CategoryDTO> getCategories();
+    public abstract String addCategory(CategoryDTO categoryDTO);
+    public abstract CategoryDTO getCategoryById(Integer id);
 }

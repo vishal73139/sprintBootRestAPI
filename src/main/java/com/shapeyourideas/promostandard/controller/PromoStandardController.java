@@ -1,8 +1,7 @@
 package com.shapeyourideas.promostandard.controller;
 
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.shapeyourideas.promostandard.dto.PromoCompanyDTO;
+
 import com.shapeyourideas.promostandard.entity.CompaniesEntity;
 import com.shapeyourideas.promostandard.service.CompaniesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.LinkedHashMap;
-import java.util.List;
 
 
 @RestController

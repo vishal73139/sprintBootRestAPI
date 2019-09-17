@@ -2,6 +2,7 @@ package com.shapeyourideas.promostandard.dto;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 public class CategoryDTO {
 
@@ -10,6 +11,12 @@ public class CategoryDTO {
 
     @NotNull(message = "Please provide Category Status")
     private Integer status;
+
+    private String slug;
+    private String image;
+
+    private List<SubCategoryDTO> subCategories;
+
 
     public String getName() {
         return name;
@@ -27,5 +34,28 @@ public class CategoryDTO {
         this.status = status;
     }
 
+    public String getSlug() {
+        return slug;
+    }
 
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+
+    public List<SubCategoryDTO> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(List<SubCategoryDTO> subCategories) {
+        this.subCategories = subCategories;
+    }
 }
